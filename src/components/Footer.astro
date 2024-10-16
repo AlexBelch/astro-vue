@@ -19,7 +19,7 @@
 
     <div class="logo3">
       <img
-        src="/images/LandKaernten_Logo.png"
+        src={`/${import.meta.env.BASE_URL}/images/LandKaernten_Logo.png`}
         alt="Logo vom Land Kärnten"
         width="336"
         height="39"
@@ -40,14 +40,14 @@
     padding: 50px 25px;
 
     .row {
-        display: flex;
-        justify-content: space-between;
+      display: flex;
+      justify-content: space-between;
 
-    .logo3 {
+      .logo3 {
         display: flex;
         flex-direction: column;
         gap: 25px;
+      }
     }
-}
   }
 </style>
