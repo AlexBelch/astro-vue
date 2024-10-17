@@ -1,7 +1,7 @@
 <footer>
   <div class="row">
     <div>
-      <ul class="footer__contact-list list--no-bullets">
+      <ul class="list-contacts">
         <li class="h4">Amt der Kärntner Landesregierung</li>
         <li><strong>Abteilung 14 – Kunst und Kultur</strong></li>
         <li>Burggasse 8</li>
@@ -35,13 +35,33 @@
     left: 0;
     bottom: 0;
     width: calc(100% - 50px);
-    background-color: lightgrey;
+    background-color: var(--lightgrey);
     margin: 25px;
     padding: 50px 25px;
 
     .row {
       display: flex;
       justify-content: space-between;
+
+      .list-contacts {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+
+        .h4 {
+          font-size: 26px;
+          font-weight: 700;
+          margin-bottom: 25px;
+        }
+
+        li:not(.h4) {
+          margin-bottom: 8px;
+
+          a {
+            color: red;
+          }
+        }
+      }
 
       .logo3 {
         display: flex;
