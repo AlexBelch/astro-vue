@@ -1,0 +1,44 @@
+.event-preview-wrap {
+  background-color: var(--lightgrey);
+  padding: 25px;
+
+  a {
+    color: red;
+  }
+
+  h1 {
+    font-size: 52px;
+    margin-bottom: 40px;
+  }
+
+  .category,
+  .date-row,
+  .location {
+    font-size: 20px;
+    font-weight: 700;
+    padding-left: 60px;
+    margin-bottom: 20px;
+  }
+
+  .date-row {
+    .date-period {
+      margin-bottom: 8px;
+    }
+
+    .date-time {
+      font-size: 16px;
+      font-weight: normal;
+    }
+  }
+
+  .content {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 40px;
+
+    img {
+       flex: 1 1 auto; 
+       align-self: center;
+    }
+  }
+}
