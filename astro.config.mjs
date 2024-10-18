@@ -12,8 +12,8 @@ import netlify from "@astrojs/netlify";
 // https://astro.build/config
 export default defineConfig({
   integrations: [vue(), react()],
-  // site: "https://alexbelch.github.io",
-  base: "/astro-vue",
+  site: "https://incomparable-sundae-70efcf.netlify.app/",
+  // base: "",
   output: "server",
 
   adapter: netlify(),
