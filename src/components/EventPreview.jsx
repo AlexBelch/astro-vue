@@ -44,7 +44,7 @@ function EventPreview() {
 
   return (
     <div className="event-preview-wrap">
-      <a href="/astro-vue">Zurück</a>
+      <a href="/">Zurück</a>
       {loading && <dir> Loading...</dir>}
       {!loading && event.length === 0 && (
         <div className="nothing">Keine Veranstaltungen gefunden</div>
@@ -85,7 +85,7 @@ function EventPreview() {
           </div>
         </div>
       )}
-      <a href="/astro-vue">Zurück</a>
+      <a href="/">Zurück</a>
     </div>
   );
 }

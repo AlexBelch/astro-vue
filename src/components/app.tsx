@@ -21,7 +21,7 @@ const router = createBrowserRouter([
     ],
   },
 ], {
-    basename: "/astro-vue"
+    basename: "/"
 });
 
 export const App = () => {
