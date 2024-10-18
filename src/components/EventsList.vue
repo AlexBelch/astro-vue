@@ -8,8 +8,6 @@ const props = defineProps({
 </script>
 
 <template>
-  <h1>Karnten events: {{ data?.length }}</h1>
-
   <div class="event-list">
     <template
       v-if="data?.length > 0"
@@ -31,6 +29,7 @@ const props = defineProps({
   flex-wrap: wrap;
   justify-content: center;
   gap: 25px;
+  margin-top: 32px;
 }
 
 .nothing {
