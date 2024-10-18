@@ -83,6 +83,7 @@ const url = `${import.meta.env.BASE_URL}/${props.event?.["dc:slug"]}`;
   flex: 1 1 30%;
   height: 100%;
   min-height: 600px;
+  max-width: 515px;
   padding: 25px;
   background: var(--lightgrey);
   display: flex;
@@ -117,7 +118,7 @@ const url = `${import.meta.env.BASE_URL}/${props.event?.["dc:slug"]}`;
 
   img {
     /* width: 100%; */
-    height: 225px;
+    max-height: 250px;
     margin-top: 25px;
   }
 
@@ -139,6 +140,8 @@ const url = `${import.meta.env.BASE_URL}/${props.event?.["dc:slug"]}`;
 
   .date-row {
     align-items: flex-start;
+    margin-bottom: 8px;
+
     .date-wrap {
       text-align: start;
 

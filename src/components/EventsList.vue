@@ -27,9 +27,10 @@ const props = defineProps({
 
 <style>
 .event-list {
- display: flex;
- flex-wrap: wrap;
- gap: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
 }
 
 .nothing {

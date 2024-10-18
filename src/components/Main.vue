@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from "vue";
 import EventsList from "./EventsList.vue";
+import Search from "./Search.vue";
 
 const loading = ref(false);
 const error = ref(null);
@@ -36,15 +37,32 @@ async function fetchData(url) {
 const url = getUrl(pageSize.value, pageNumber.value, searchText.value);
 
 fetchData(url);
+
+const search = (searchValue) => {
+  // alert(`${searchText.value}`);
+  searchText.value = searchValue;
+  console.log("searchText=", searchText.value);
+  // const url = `https://data.carinthia.com/api/v4/endpoints/557ea81f-6d65-6476-9e01-d196112514d2?include=image,location,eventSchedule&token=9962098a5f6c6ae8d16ad5aba95afee0&page[size]=10&page[number]=1&filter[q]=${searchText.value}`;
+  const url = getUrl(pageSize.value, pageNumber.value, searchText.value);
+  console.log("urlNew=", url);
+  // const responce = await fetch(url).then((response) => response.json());
+  // data.value.length = 0;
+  // data.value.push(...responce["@graph"]);
+  fetchData(url);
+};
 </script>
 
 <template>
   <div class="main">
-    <h1>Veranstaltungen in Kärnten</h1>
-    <div class="subtitle">Das vielfältige Kulturangebot im Süden</div>
-    <p>Search Text: {{ searchText }}</p>
-    <input type="text" v-model.lazy="searchText" />
-    <button @click="search">&#128269; Search</button>
+    <div class="title">
+      <h1 v-if="searchText === ''">Veranstaltungen in Kärnten</h1>
+      <div v-if="searchText === ''" class="subtitle">
+        Das vielfältige Kulturangebot im Süden
+      </div>
+      <h1 v-if="searchText !== ''">Veranstaltungssuche</h1>
+    </div>
+    <!-- <p>Search Text: {{ searchText }}</p> -->
+    <Search @search="search" client:load />
 
     <EventsList v-if="data !== null" :searchQuery="searchText" :data="data" />
 
@@ -57,14 +75,18 @@ fetchData(url);
 .main {
   text-align: center;
 
-  h1 {
-    font-size: 50px;
-    margin-top: 0;
-    margin-bottom: 12px;
-  }
+  .title {
+    padding: 25px;
 
-  .subtitle {
-    font-size: 32px;
+    h1 {
+      font-size: 50px;
+      margin-top: 0;
+      margin-bottom: 12px;
+    }
+
+    .subtitle {
+      font-size: 32px;
+    }
   }
 }
 </style>
