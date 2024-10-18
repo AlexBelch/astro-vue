@@ -6,10 +6,19 @@
   --lightgrey: #f3f4f4;
 }
 
+html,
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  height: 100%;
   margin: 0;
   padding: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* align-content: stretch; */
 
   header {
     strong {
@@ -17,7 +26,16 @@ body {
     }
   }
 
-  main {
+  .header,
+  .footer {
+    flex: 0 1 auto;
+  }
+
+  .main {
+    flex: 1 1 auto;
     padding: 30px 25px;
+    margin-top: 98px;
+
+    min-height: calc(100% - 410px);
   }
 }

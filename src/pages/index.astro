@@ -1,11 +1,10 @@
 ---
+import Main from "../components/Main.vue";
 import BaseLayout from "../layouts/Layout.astro";
 
 const pageTitle = "Veranstaltungsdatenbank Kärnten";
 ---
 
-<BaseLayout pageTitle={pageTitle}>
-  <h2>{pageTitle}</h2>
-  <div>Panel suchen</div>
-  <div>List events</div>
+<BaseLayout pageTitle={pageTitle}>  
+  <Main client:load />
 </BaseLayout>
