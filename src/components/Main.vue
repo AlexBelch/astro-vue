@@ -25,7 +25,7 @@ async function fetchData(url) {
 
   try {
     const responce = await fetch(url).then((response) => response.json());
-    console.log("responce=", responce);
+    // console.log("responce=", responce);
     data.value = [...responce["@graph"]];
     totalRow.value = responce?.meta.total;
   } catch (err) {
@@ -48,7 +48,6 @@ const search = (searchValue) => {
 };
 
 function paginationChange(data) {
-  console.log(data); // { pageNumber: 1, pageSize: 10, totalPage: 10 }
   pageNumber.value = data?.pageNumber;
   pageSize.value = data?.pageSize;
   fetchData(getUrl(pageSize.value, pageNumber.value, searchText.value));
@@ -69,9 +68,10 @@ function paginationChange(data) {
 
     <PaginationBar
       align="center"
-      border="true"
+      border
       :page-size-menu="[12, 24, 50, 100]"
-      hide-on-single-page="true"
+      :page-size="pageSize"
+      hide-on-single-page
       v-model="pageNumber"
       :totalRow="totalRow"
       @change="paginationChange"

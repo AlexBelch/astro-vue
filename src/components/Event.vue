@@ -27,7 +27,7 @@ const endTime = endDate.toLocaleTimeString("de-DE", {
   timeZone: "Europe/Vienna",
 });
 
-const url = `${import.meta.env.BASE_URL}/${props.event?.["dc:slug"]}`;
+const url = `${import.meta.env.BASE_URL}/events/${props.event?.["dc:slug"]}`;
 </script>
 
 <template>

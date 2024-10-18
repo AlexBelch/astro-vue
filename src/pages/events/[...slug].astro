@@ -1,0 +1,10 @@
+---
+import BaseLayout from "../../layouts/Layout.astro";
+import { App } from "../../components/app";
+---
+
+<BaseLayout pageTitle="Event preview">
+  <div class="main">
+    <App client:only="react"/>
+  </div>
+</BaseLayout>
