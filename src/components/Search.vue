@@ -52,6 +52,11 @@ const searchTextNew = ref("");
 
     input {
       padding: 5.4px 8px;
+
+     &:focus, &:focus-visible {
+        border-color: #0000008f;
+        outline-color: #0000008f;
+     }
     }
 
     input,

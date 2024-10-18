@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from "vue";
+import { PaginationBar } from "v-page";
 import EventsList from "./EventsList.vue";
 import Search from "./Search.vue";
 
@@ -39,17 +40,19 @@ const url = getUrl(pageSize.value, pageNumber.value, searchText.value);
 fetchData(url);
 
 const search = (searchValue) => {
-  // alert(`${searchText.value}`);
   searchText.value = searchValue;
-  console.log("searchText=", searchText.value);
-  // const url = `https://data.carinthia.com/api/v4/endpoints/557ea81f-6d65-6476-9e01-d196112514d2?include=image,location,eventSchedule&token=9962098a5f6c6ae8d16ad5aba95afee0&page[size]=10&page[number]=1&filter[q]=${searchText.value}`;
+
   const url = getUrl(pageSize.value, pageNumber.value, searchText.value);
-  console.log("urlNew=", url);
-  // const responce = await fetch(url).then((response) => response.json());
-  // data.value.length = 0;
-  // data.value.push(...responce["@graph"]);
+
   fetchData(url);
 };
+
+function paginationChange(data) {
+  console.log(data); // { pageNumber: 1, pageSize: 10, totalPage: 10 }
+  pageNumber.value = data?.pageNumber;
+  pageSize.value = data?.pageSize;
+  fetchData(getUrl(pageSize.value, pageNumber.value, searchText.value));
+}
 </script>
 
 <template>
@@ -61,8 +64,18 @@ const search = (searchValue) => {
       </div>
       <h1 v-if="searchText !== ''">Veranstaltungssuche</h1>
     </div>
-    <!-- <p>Search Text: {{ searchText }}</p> -->
+
     <Search @search="search" client:load />
+
+    <PaginationBar
+      align="center"
+      border="true"
+      :page-size-menu="[12, 24, 50, 100]"
+      hide-on-single-page="true"
+      v-model="pageNumber"
+      :totalRow="totalRow"
+      @change="paginationChange"
+    />
 
     <EventsList v-if="data !== null" :searchQuery="searchText" :data="data" />
 
@@ -86,6 +99,27 @@ const search = (searchValue) => {
 
     .subtitle {
       font-size: 32px;
+    }
+  }
+
+  .v-pagination.v-pagination--border {
+    height: 40px;
+    ul {
+      li.active a {
+        color: red;
+        background-color: #ffde00;
+      }
+
+      li {
+        a {
+          font-size: 18px;
+          border-color: #ffde00;
+        }
+
+        select {
+          font-size: 16px;
+        }
+      }
     }
   }
 }

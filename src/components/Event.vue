@@ -13,7 +13,7 @@ const lastElementClassification =
   props.event?.["dc:classification"][
     props.event?.["dc:classification"].length - 1
   ];
-// console.log("event=", props.event);
+
 const startDate = new Date(props?.event?.startDate);
 const endDate = new Date(props?.event?.endDate);
 const startTime = startDate.toLocaleTimeString("de-DE", {
@@ -27,8 +27,6 @@ const endTime = endDate.toLocaleTimeString("de-DE", {
   timeZone: "Europe/Vienna",
 });
 
-// console.log("startDate - todayDate=", startDate - todayDate);
-// console.log("endDate - todayDate=", endDate - todayDate);
 const url = `${import.meta.env.BASE_URL}/${props.event?.["dc:slug"]}`;
 </script>
 
