@@ -18,11 +18,16 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  /* align-content: stretch; */
 
   header {
-    strong {
-      font-weight: 700;
+    .row {
+      .logo1 {
+        display: none;
+      }
+
+      strong {
+        font-weight: 700;
+      }
     }
   }
 
@@ -37,5 +42,118 @@ body {
     margin-top: 98px;
 
     min-height: calc(100% - 410px);
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  body {
+    main {
+      .main {
+        .event-preview-wrap {
+          .content {
+            flex-direction: column;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 825px) {
+  body {
+    main {
+      .main {
+        .v-pagination.v-pagination--border {
+          ul {
+            li {
+              a,
+              select {
+                font-size: 14px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 700px) {
+  body {
+    header {
+      .row {
+        .logo1 {
+          display: block;
+        }
+
+        .logo2 {
+          display: none;
+        }
+      }
+    }
+    main {
+      .main {
+        .title {
+          h1 {
+            font-size: 32px;
+          }
+          .subtitle {
+            font-size: 24px;
+          }
+        }
+
+        .event-preview-wrap {
+          h1 {
+            font-size: 32px;
+          }
+
+          .category,
+          .date-row,
+          .location {
+            padding-left: 20px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  body {
+    main {
+      .main {
+        .v-pagination.v-pagination--border {
+          height: 30px;
+          ul {
+            .v-pagination__info {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  body {
+    main {
+      .main {
+        .search-wrap {
+          .search-bar {
+            flex-direction: column;
+            row-gap: 8px;
+          }
+        }
+        .v-pagination.v-pagination--border {
+          height: 30px;
+          ul {
+            .v-pagination__list {
+              display: none;
+            }
+          }
+        }
+      }
+    }
   }
 }
