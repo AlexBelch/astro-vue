@@ -46,17 +46,18 @@ const searchTextNew = ref("");
     display: flex;
     justify-content: center;
     column-gap: 16px;
-    background-color: #ffde00;
+    background-color: var(--yellow);
     padding: 16px;
     margin-bottom: 32px;
 
     input {
       padding: 5.4px 8px;
 
-     &:focus, &:focus-visible {
+      &:focus,
+      &:focus-visible {
         border-color: #0000008f;
         outline-color: #0000008f;
-     }
+      }
     }
 
     input,

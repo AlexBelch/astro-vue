@@ -49,16 +49,4 @@ const props = defineProps({
   animation: blink 3.5s infinite;
   animation-fill-mode: both;
 }
-
-@keyframes blink {
-  0% {
-    opacity: 0;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
 </style>

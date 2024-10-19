@@ -39,8 +39,6 @@ const url = `/events/${props.event?.["dc:slug"]}`;
       </div>
     </div>
 
-    <!-- <div>{{ event?.["@id"] }}</div>
-    <h3>{{ event?.["@type"] }}</h3> -->
     <img :src="event?.image[0]?.thumbnailUrl" />
     <h2>{{ event?.name }}</h2>
     <div class="date-row">
@@ -55,13 +53,7 @@ const url = `/events/${props.event?.["dc:slug"]}`;
         </div>
         <div v-if="startTime !== endTime">{{ startTime }} - {{ endTime }}</div>
       </div>
-    </div>
-    <!-- <h3>
-      {{ event?.eventSchedule[0]?.startDate }}
-      {{ event?.eventSchedule[0]?.startTime }} -
-      {{ event?.eventSchedule[0]?.endDate }}
-      {{ event?.eventSchedule[0]?.endTime }}
-    </h3> -->
+    </div>  
     <div class="location">
       <MapPinIcon class="icon" />
       <div>
@@ -69,11 +61,7 @@ const url = `/events/${props.event?.["dc:slug"]}`;
       </div>
     </div>
     <div class="event-link">Details...</div>
-    <!-- <h5>Slug - {{ event?.["dc:slug"] }}</h5>
-    <h6>Id - {{ event?.["@id"] }}</h6>
-    <div>Description: {{ event?.description }}</div>
-    <div>Weitere Termine: {{ event?.eventSchedule[0]?.["@id"] }}</div> -->
-  </a>
+   </a>
 </template>
 
 <style>
@@ -81,6 +69,7 @@ const url = `/events/${props.event?.["dc:slug"]}`;
   flex: 1 1 30%;
   height: 100%;
   min-height: 600px;
+  min-width: 275px;
   max-width: 515px;
   padding: 25px;
   background: var(--lightgrey);
@@ -94,7 +83,7 @@ const url = `/events/${props.event?.["dc:slug"]}`;
 
   &:hover {
     cursor: pointer;
-    background: #ffde00;
+    background: var(--yellow);
 
     text-decoration: underline;
   }
@@ -134,6 +123,7 @@ const url = `/events/${props.event?.["dc:slug"]}`;
     gap: 25px;
     align-items: center;
     padding-left: 25px;
+    text-align: start;
   }
 
   .date-row {
