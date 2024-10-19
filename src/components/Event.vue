@@ -83,7 +83,7 @@ const url = `/events/${props.event?.["dc:slug"]}`;
 
   &:hover {
     cursor: pointer;
-    background: #ffde00;
+    background: var(--yellow);
 
     text-decoration: underline;
   }

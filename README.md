@@ -1,15 +1,12 @@
 # astro-vue
 Test task for junior fullstack web-developer
 
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+1. Clone git repository
+2. In terminal go to project dir\
+   **cd ./astro-vue**
+3. In terminal installing node packages and dependencies\
+   **npm install**
+4. In terminal start astro\
+   **npm run dev**
+5. Open in browser link\
+   **http://127.0.0.1:4231**

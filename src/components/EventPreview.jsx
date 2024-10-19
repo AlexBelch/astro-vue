@@ -18,17 +18,15 @@ function EventPreview() {
         return res.json();
       })
       .then((data) => {
-        // console.log(data);
         setEvent(data["@graph"]);
         setHTML({__html: data["@graph"][0]?.description})
         setLoading(false);
       });
   }, []);
 
-//   console.log("event=", event);
   const lastElementClassification =
     event[0]?.["dc:classification"][event[0]?.["dc:classification"].length - 1];
-//   console.log("lastElementClassification=", lastElementClassification);
+
   const startDate = new Date(event[0]?.startDate);
   const endDate = new Date(event[0]?.endDate);
   const startTime = startDate.toLocaleTimeString("de-DE", {
@@ -42,15 +40,22 @@ function EventPreview() {
     timeZone: "Europe/Vienna",
   });
 
+  if (!loading) {
+    document.getElementById("firstload")?.remove();
+  } else {
+    return <div></div>;
+  }
+
   return (
     <div className="event-preview-wrap">
       <a href="/">Zurück</a>
-      {loading && <dir> Loading...</dir>}
+      
+      {/* {loading && <div><span className="load"></span></div>} */}
       {!loading && event.length === 0 && (
         <div className="nothing">Keine Veranstaltungen gefunden</div>
       )}
       {!loading && event.length > 0 && (
-        <div className="">
+        <div>
           <h1>{event[0].name}</h1>
           <div className="category">
             {/* <TagIcon class="icon" /> */}
@@ -73,7 +78,7 @@ function EventPreview() {
               )}
             </div>
           </div>
-          <div class="location">
+          <div className="location">
             {/* <MapPinIcon class="icon" /> */}
             <div>
               <strong>{event[0]?.location[0]?.name}</strong>
