@@ -202,6 +202,12 @@ body {
           .search-bar {
             flex-direction: column;
             row-gap: 8px;
+
+            select,
+            input,
+            button {
+              width: -webkit-fill-available;
+            }
           }
         }
         .v-pagination.v-pagination--border {
