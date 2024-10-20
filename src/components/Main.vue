@@ -34,12 +34,20 @@ async function fetchData(url) {
   }
 }
 
-const url = getUrl(pageSize.value, pageNumber.value, searchText.value);
+if (data.value.length === 0) {
+  const url = getUrl(pageSize.value, pageNumber.value, searchText.value);
+  fetchData(url);
+}
 
-fetchData(url);
+let isSearch = false;
 
 const search = (searchValue) => {
+  isSearch = true;
+
   searchText.value = searchValue;
+  totalRow.value = 0;
+  pageSize.value = 12;
+  pageNumber.value = 1;
 
   const url = getUrl(pageSize.value, pageNumber.value, searchText.value);
 
@@ -47,9 +55,12 @@ const search = (searchValue) => {
 };
 
 function paginationChange(data) {
-  pageNumber.value = data?.pageNumber;
-  pageSize.value = data?.pageSize;
-  fetchData(getUrl(pageSize.value, pageNumber.value, searchText.value));
+  if (!isSearch && data.totalPage !== 0) {
+    pageNumber.value = data?.pageNumber;
+    pageSize.value = data?.pageSize;
+    fetchData(getUrl(pageSize.value, pageNumber.value, searchText.value));
+    isSearch = false;
+  }
 }
 </script>
 
@@ -69,7 +80,7 @@ function paginationChange(data) {
       align="center"
       border
       :page-size-menu="[12, 24, 50, 100]"
-      :page-size="pageSize"
+      v-model:page-size="pageSize"
       hide-on-single-page
       v-model="pageNumber"
       :totalRow="totalRow"
