@@ -81,12 +81,16 @@ async function fetchData(url, method = "GET") {
       }).then((response) => response.json());
     }
 
-    if (responce !== null) {
+    if (responce?.errors !== undefined && responce?.errors.length > 0) {
+      error.value = `Fehler beim Laden der Veranstaltungen. - ${responce?.errors[0]?.detail}`;
+      console.log("responce=", responce);
+    } else if (responce !== null) {
       data.value = [...responce["@graph"]];
       totalRow.value = responce?.meta.total;
     }
   } catch (err) {
-    error.value = err.toString();
+    error.value = "Fehler beim Laden der Veranstaltungen.";
+    console.log("Error request=", err.toString());
   } finally {
     loading.value = false;
   }
